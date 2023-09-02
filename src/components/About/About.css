@@ -1,0 +1,32 @@
+
+
+/* about */
+#about-container{
+    background-color: #D4CEFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    color: #5749E3;
+    padding: 50px;
+  }
+  #about-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    font-size: 20px;
+  }
+  #about-img{
+    padding: 20px;
+    width: 200px;
+  }
+
+  @media screen and (max-width : 768px) {
+
+  /* about */
+  #about-container{
+    width: auto;
+  }
+  }

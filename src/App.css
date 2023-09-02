@@ -1,0 +1,21 @@
+html{
+  scroll-behavior: smooth;
+  background-color: #D4CEFF;
+  padding: 0;
+  margin: 0;
+}
+.App{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: url('./assets/bgBody.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;  
+}
+#root{
+  text-align: -webkit-center;
+}
+@media screen and (max-width : 768px) {
+  .App{
+    width: auto;
+  }
+}

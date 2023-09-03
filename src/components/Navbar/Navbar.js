@@ -1,21 +1,36 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Navbar.css'
+import React from "react";
+import "./Navbar.css";
 const Navbar = () => {
   return (
-    <nav id='navbar'>
-        <ul id='navbar-ul'>
-            <li><Link to="/">WESTEND CO.</Link></li>
-            <li><Link to="/">Home</Link></li>
-            <li><a href="/#features">Features</a></li>
-            <li><Link to="/loan">Loans</Link></li>
-            <li><Link to="/calculator"> Calculator</Link></li>
-            <li><Link to="/">Deposits</Link></li>
-            <li><a href="/#about-container">About Us</a></li>
-            <li><Link to="/"> Contact Us</Link></li>
-        </ul>
+    <nav id="navbar">
+      <ul id="navbar-ul">
+        <li>
+          <a href="/">WESTEND CO.</a>
+        </li>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/#features">Features</a>
+        </li>
+        <li>
+          <a href="/loan">Loans</a>
+        </li>
+        <li>
+          <a href="/calculator"> Calculator</a>
+        </li>
+        <li>
+          <a href="/">Deposits</a>
+        </li>
+        <li>
+          <a href="/#about-container">About Us</a>
+        </li>
+        <li>
+          <a href="/"> Contact Us</a>
+        </li>
+      </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

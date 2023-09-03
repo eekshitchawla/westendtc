@@ -1,17 +1,13 @@
-
-import Navbar from '../Navbar/Navbar'
-import './Loan.css'
-
+import "./Loan.css";
 
 const Loan = () => {
-  return(
+  return (
     <>
-    <Navbar/>
-    <div id='loans-page'>
-      <h1>Loans</h1>
-    </div>
+      <div id="loans-page">
+        <h1>Loans</h1>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Loan
+export default Loan;

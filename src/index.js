@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Loan from './components/Loan/Loan';
+import Calculator from './components/Calculator/Calculator';
 
 const appRouter = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const appRouter = createBrowserRouter([
   {
     path : '/loan',
     element : <Loan/>
+  },
+  {
+    path : '/calculator',
+    element : <Calculator/>
   },
 ])
 const root = ReactDOM.createRoot(document.getElementById('root'));

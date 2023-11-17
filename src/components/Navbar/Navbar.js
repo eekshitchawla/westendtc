@@ -3,18 +3,17 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <nav id="navbar">
-      <ul id="navbar-ul">
+      <div id="navbar-ul">
         <li>
-          <a href="/">WESTEND CO.</a>
+          <a id="westendLink" href="/">
+            WESTEND CO.
+          </a>
         </li>
         <li>
           <a href="/">Home</a>
         </li>
         <li>
           <a href="/#features">Features</a>
-        </li>
-        <li>
-          <a href="/loan">Loans</a>
         </li>
         <li>
           <a href="/calculator"> Calculator</a>
@@ -28,7 +27,7 @@ const Navbar = () => {
         <li>
           <a href="/"> Contact Us</a>
         </li>
-      </ul>
+      </div>
     </nav>
   );
 };

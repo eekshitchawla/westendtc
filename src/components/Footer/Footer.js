@@ -28,9 +28,7 @@ const Footer = () => {
           width="200"
           height="150"
           style={{ border: 0 }}
-          allowfullscreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
     </footer>

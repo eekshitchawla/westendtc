@@ -1,21 +1,28 @@
-html{
+@font-face {
+  font-family: "Garet-Heavy";
+  src: local("Garet-Heavy"),
+    url(../src/assets/Garet-Heavy.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Garet-Book";
+  src: local("Garet-Book"), url(../src/assets/Garet-Book.ttf) format("truetype");
+}
+
+html {
   scroll-behavior: smooth;
-  background-color: #D4CEFF;
   padding: 0;
   margin: 0;
+  background-color: #d4ceff;
 }
-.App{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background: url('./assets/bgBody.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;  
+.App {
+  font-size: 14px;
+  font-family: "Garet-Book";
 }
-#root{
+#root {
   text-align: -webkit-center;
 }
-@media screen and (max-width : 768px) {
-  .App{
+@media screen and (max-width: 768px) {
+  .App {
     width: auto;
   }
 }

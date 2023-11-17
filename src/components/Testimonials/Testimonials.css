@@ -1,39 +1,46 @@
-#testimonials-container{
+#testimonials-container {
   display: flex;
   flex-direction: column;
-  background-color: #DBDCF9;
+  background-color: #dbdcf9;
   align-items: center;
   justify-content: center;
   padding: 20vh 0;
-  color: #482DAD;
+  color: #482dad;
 }
-#test-container{
+#test-heading {
+  font-family: "Garet-Heavy";
+}
+#test-container {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
-#test{
-  width: 20vw;
+#test {
+  /* width: 20%;
+  height: 20%; */
   border-radius: 20px;
   padding: 20px;
   margin: 1vh;
-  background-color: #948FFF;
-  color: #482DAD;
+  background-color: #948fff;
+  color: #482dad;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-#name-date{
+#name-date {
   float: right;
 }
 
-@media screen and (max-width : 768px) { 
-  #testimonials-container{
+@media screen and (max-width: 768px) {
+  #testimonials-container {
     text-align: center;
   }
-  #test-container{
+  #test-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  #test{
+  #test {
     width: 70vw;
   }
 }

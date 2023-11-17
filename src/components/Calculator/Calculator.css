@@ -1,71 +1,72 @@
-#loan-page{
-    background-color: #fff;
-    color: #482DAD;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 70vw;
-    text-align-last: left;
+#loan-page {
+  background-color: #fff;
+  color: #482dad;
+  padding: 20px;
+  padding-top: 6rem;
+  margin: 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 70vw;
+  text-align-last: left;
 }
-input{
-    width: 20vw;
-    padding: 10px;
-    accent-color: #482dad;
+input {
+  width: 20vw;
+  padding: 10px;
+  accent-color: #482dad;
 }
-#loanVal{
-    padding: 10px;
-    font-weight: bold;
+#loanVal {
+  padding: 10px;
+  font-weight: bold;
 }
-#input-range{
-    display: flex;
+#input-range {
+  display: flex;
 }
-#timeBtn{
-    padding: 15px;
-    outline: none;
-    border: none;
-    background-color: #fff;
-    color: #482DAD;
-    cursor: pointer;
-    border-radius: 20px;
+#timeBtn {
+  padding: 15px;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  color: #482dad;
+  cursor: pointer;
+  border-radius: 20px;
 }
-#timeBtn:hover{
-    background-color: #482DAD;
-    color: white;
-    transition: background-color 0.5s ease-in-out;
+#timeBtn:hover {
+  background-color: #482dad;
+  color: white;
+  transition: background-color 0.5s ease-in-out;
 }
 
-#display{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 20px;
-    font-size: 20px;
+#display {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  font-size: 20px;
 }
-#d-left{
-    font-weight: bold;
+#d-left {
+  font-weight: bold;
+}
+#d-left,
+#d-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+hr {
+  border: 3px solid #482dad;
+  border-radius: 10px;
+}
 
-}
-#d-left, #d-right{
+@media screen and (max-width: 768px) {
+  #loan-page {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-hr{
-    border: 3px solid #482DAD;
-    border-radius: 10px;
-}
-
-@media screen and (max-width : 768px) {
-    #loan-page{
-        display: flex;
-        flex-direction: column;
-        font-size: 10px;
-    }
-    input{
-        width: 50vw;
-    }
+    font-size: 10px;
+  }
+  input {
+    width: 50vw;
+  }
 }

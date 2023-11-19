@@ -1,21 +1,10 @@
 import React, { useRef } from "react";
 import "./AddMember.css";
-
-import { initializeApp } from "firebase/app";
-import { getFirestore, setDoc, doc, getDoc } from "firebase/firestore";
+import { setDoc, doc, getDoc } from "firebase/firestore";
+import { db_firebase } from "../../../utils/firebase";
 
 const AddMember = () => {
-  const firebaseConfig = {
-    apiKey: "AIzaSyDvXEVHj8jIG19gVRZ5GBWChBBhZk9uwUA",
-    authDomain: "westend-tc.firebaseapp.com",
-    projectId: "westend-tc",
-    storageBucket: "westend-tc.appspot.com",
-    messagingSenderId: "539923039306",
-    appId: "1:539923039306:web:9b5954217ce1c55ca552b3",
-    measurementId: "G-K65TR7EZVF",
-  };
-  const app = initializeApp(firebaseConfig);
-
+  const db = db_firebase;
   const memId = useRef();
   const memName = useRef();
   const age = useRef();
@@ -23,7 +12,6 @@ const AddMember = () => {
   const address = useRef();
 
   const toFirebase = async () => {
-    const db = getFirestore(app);
     const memberId = memId.current.value;
     const memberName = memName.current.value;
     const memberAge = age.current.value;

@@ -1,6 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { doc, getDoc, getFirestore, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import React, { useState } from "react";
+import { db_firebase } from "../../../utils/firebase";
 
 const EditMember = () => {
   const [id, setId] = useState("");
@@ -10,17 +10,7 @@ const EditMember = () => {
   const [phnm, setPhnm] = useState("");
   const [address, setAddress] = useState("");
   const [isPresent, setIsPresent] = useState(false);
-  const firebaseConfig = {
-    apiKey: "AIzaSyDvXEVHj8jIG19gVRZ5GBWChBBhZk9uwUA",
-    authDomain: "westend-tc.firebaseapp.com",
-    projectId: "westend-tc",
-    storageBucket: "westend-tc.appspot.com",
-    messagingSenderId: "539923039306",
-    appId: "1:539923039306:web:9b5954217ce1c55ca552b3",
-    measurementId: "G-K65TR7EZVF",
-  };
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+  const db = db_firebase;
   const editMember = async () => {
     const memberId = id;
     try {

@@ -1,22 +1,12 @@
 import React, { useRef } from "react";
 import "./RemoveMember.css";
-import { initializeApp } from "firebase/app";
-import { deleteDoc, doc, getDoc, getFirestore } from "firebase/firestore";
+import { deleteDoc, doc, getDoc } from "firebase/firestore";
+import { db_firebase } from "../../../utils/firebase";
 
 const RemoveMember = () => {
   const id = useRef();
   const removeMember = async () => {
-    const firebaseConfig = {
-      apiKey: "AIzaSyDvXEVHj8jIG19gVRZ5GBWChBBhZk9uwUA",
-      authDomain: "westend-tc.firebaseapp.com",
-      projectId: "westend-tc",
-      storageBucket: "westend-tc.appspot.com",
-      messagingSenderId: "539923039306",
-      appId: "1:539923039306:web:9b5954217ce1c55ca552b3",
-      measurementId: "G-K65TR7EZVF",
-    };
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db = db_firebase;
     const memberId = id.current.value;
     try {
       const memberDocRef = doc(db, "members", memberId);

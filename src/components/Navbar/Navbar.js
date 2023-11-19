@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const loggedOut = () => {
+    localStorage.removeItem("userId");
+    setIsLoggedIn(false);
+  };
+  useEffect(() => {
+    setIsLoggedIn(localStorage.getItem("userId") ? true : false);
+  }, []);
+  // refresh issue
   return (
     <nav id="navbar">
       <div id="navbar-ul">
@@ -27,6 +36,22 @@ const Navbar = () => {
         <li>
           <a href="/"> Contact Us</a>
         </li>
+        {isLoggedIn ? (
+          <li
+            id="logout"
+            onClick={(e) => {
+              e.preventDefault();
+              loggedOut();
+              alert("Logged Out!");
+            }}
+          >
+            Logout
+          </li>
+        ) : (
+          <li>
+            <a href="/login">Login</a>
+          </li>
+        )}
       </div>
     </nav>
   );

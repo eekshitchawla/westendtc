@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import AddMember from "./components/admin/AddMember/AddMember";
 import RemoveMember from "./components/admin/RemoveMember/RemoveMember";
 import EditMember from "./components/admin/EditMember/EditMember";
+import Login from "./components/Login/Login";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -28,6 +29,10 @@ function App() {
     {
       path: "/edit-member",
       element: <EditMember />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
     },
   ]);
   return (

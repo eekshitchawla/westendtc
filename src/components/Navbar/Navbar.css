@@ -28,6 +28,9 @@ a:hover {
 #navbar-ul > li {
   padding: 1vw;
 }
+#logout {
+  color: white;
+}
 @media screen and (max-width: 768px) {
   /* navbar */
   #navbar {

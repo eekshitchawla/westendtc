@@ -7,6 +7,7 @@ import AddMember from "./components/admin/AddMember/AddMember";
 import RemoveMember from "./components/admin/RemoveMember/RemoveMember";
 import EditMember from "./components/admin/EditMember/EditMember";
 import Login from "./components/Login/Login";
+import Deposits from "./components/Deposits/Deposits";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -33,6 +34,10 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/deposits",
+      element: <Deposits />,
     },
   ]);
   return (

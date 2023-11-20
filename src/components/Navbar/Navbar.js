@@ -9,7 +9,6 @@ const Navbar = () => {
   useEffect(() => {
     setIsLoggedIn(localStorage.getItem("userId") ? true : false);
   }, []);
-  // refresh issue
   return (
     <nav id="navbar">
       <div id="navbar-ul">
@@ -28,13 +27,13 @@ const Navbar = () => {
           <a href="/calculator"> Calculator</a>
         </li>
         <li>
-          <a href="/">Deposits</a>
+          <a href="/deposits">Deposits</a>
         </li>
         <li>
           <a href="/#about-container">About Us</a>
         </li>
         <li>
-          <a href="/"> Contact Us</a>
+          <a href="/#footer-container"> Contact Us</a>
         </li>
         {isLoggedIn ? (
           <li

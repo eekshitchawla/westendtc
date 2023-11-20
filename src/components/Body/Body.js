@@ -39,14 +39,18 @@ const Body = () => {
             The primary objective of the Society revolves around the cultivation
             and enhancement of a culture of prudent Savings amongst its{" "}
           </p>
+          <div style={{ display: "flex", gap: 15 }}>
+            <button id="banner-button1">Get Started</button>
+            <button id="banner-button2">Loan Calculator</button>
+          </div>
         </div>
         <div id="logo-container">
           <img src={logo} alt="co-operative" id="coop-img" />
         </div>
       </div>
       <div id="features">
-        <h1 id="features-heading">FEATURES</h1>
-        <p>Have a look at our features</p>
+        <div id="features-heading">FEATURES</div>
+        <div id="features-sub-heading">Have a look at our features</div>
         <div id="info-cards">
           {data.map((item, i) => (
             <div key={i} className="info-card" id="accounts-card">

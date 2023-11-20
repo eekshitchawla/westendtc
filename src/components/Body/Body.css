@@ -79,10 +79,10 @@
 }
 .info-card {
   width: 20vw;
-  background: linear-gradient(
-    90deg,
+  background: radial-gradient(
+    circle,
     rgba(72, 45, 173, 0.27) 0%,
-    rgba(148, 143, 255, 1) 100%
+    rgba(148, 143, 255, 0.27) 100%
   );
   border-radius: 20px;
   padding: 50px 20px;
@@ -90,7 +90,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 #accountant-img {
   width: 60px;

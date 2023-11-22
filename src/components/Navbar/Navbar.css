@@ -4,6 +4,7 @@
   opacity: 0.9;
 }
 #navbar-ul {
+  position: absolute;
   padding: 1rem;
   list-style-type: none;
   display: flex;

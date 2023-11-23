@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const Deposits = () => {
   const [loanAmt, setLoanAmt] = useState(0);
   const [durationAmt, setDurationAmt] = useState(0);
+
   const loanAmtVal = (event) => {
     setLoanAmt(event.target.value);
   };
@@ -24,12 +25,24 @@ const Deposits = () => {
       datalist.appendChild(option);
     }
   }, []);
-  function calculateCompoundInterestForRD(P, r, n, t) {
-    const rate = r / 100;
-    const compoundInterest = P * Math.pow(1 + rate / n, (n * t) / 12);
-    const futureValue = compoundInterest.toFixed(2); // You can adjust the precision as needed
 
-    return parseFloat(futureValue);
+  function calculateCompoundInterestForRD(
+    investment,
+    interestRate,
+    timePeriod
+  ) {
+    interestRate = parseInt(interestRate) / 100;
+
+    // Calculate maturity amount
+    var maturityAmount = 0;
+    for (var i = 1; i <= timePeriod; i++) {
+      maturityAmount += parseInt(investment);
+      maturityAmount *= 1 + interestRate / 12;
+    }
+    // const rate = r / 100;
+    // const compoundInterest = P * Math.pow(1 + rate / n, (n * t) / 12);
+    // const futureValue = compoundInterest.toFixed(2); // You can adjust the precision as needed
+    return parseFloat(maturityAmount.toFixed(2));
   }
 
   return (
@@ -104,9 +117,7 @@ const Deposits = () => {
           </div>
           <br />
           {/* A = P x (1 + r/100)^nt */}
-          <div>
-            {calculateCompoundInterestForRD(loanAmt, 8, 12, durationAmt)}
-          </div>
+          <div>{calculateCompoundInterestForRD(loanAmt, 8, durationAmt)}</div>
         </div>
       </main>
     </div>

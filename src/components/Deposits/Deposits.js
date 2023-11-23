@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-
+import "./Deposits.css";
 const Deposits = () => {
   const [loanAmt, setLoanAmt] = useState(0);
+  const [rate, setRate] = useState(0);
   const [durationAmt, setDurationAmt] = useState(0);
 
   const loanAmtVal = (event) => {
     setLoanAmt(event.target.value);
+  };
+  const rateVal = (e) => {
+    setRate(e.target.value);
   };
   const durationAmtVal = (event) => {
     setDurationAmt(event.target.value);
@@ -13,11 +17,7 @@ const Deposits = () => {
 
   useEffect(() => {
     const datalist = document.getElementById("loanTicks");
-
-    // Clear existing options
     datalist.innerHTML = "";
-
-    // Generate and append options from 1 to 84
     for (let i = 1; i <= 84; i++) {
       const option = document.createElement("option");
       option.value = i;
@@ -39,20 +39,17 @@ const Deposits = () => {
       maturityAmount += parseInt(investment);
       maturityAmount *= 1 + interestRate / 12;
     }
-    // const rate = r / 100;
-    // const compoundInterest = P * Math.pow(1 + rate / n, (n * t) / 12);
-    // const futureValue = compoundInterest.toFixed(2); // You can adjust the precision as needed
     return parseFloat(maturityAmount.toFixed(2));
   }
 
   return (
-    <div className="addMem">
+    <div className="addMem" id="depo">
       <div>Deposits</div>
       <main>
         <br />
         <br />
         <div>Regular Deposits</div>
-        <div>
+        <div id="compo">
           <h3>Installment Amount</h3>
           <div id="input-range">
             <input
@@ -94,6 +91,27 @@ const Deposits = () => {
               list="loanAmountTicks"
             />
           </div>
+          <h3>Rate</h3>
+          <div id="input-range">
+            <input
+              type="range"
+              min={0}
+              max={84}
+              step={3}
+              value={rate}
+              onChange={rateVal}
+              list="loanTicks"
+            />
+            <datalist id="loanTicks"></datalist>
+            <input
+              type="number"
+              min={0}
+              max={84}
+              value={rate}
+              onChange={rateVal}
+              list="loanTicks"
+            />
+          </div>
           <h3>Duration (months)</h3>
           <div id="input-range">
             <input
@@ -115,9 +133,12 @@ const Deposits = () => {
               list="loanTicks"
             />
           </div>
+
           <br />
           {/* A = P x (1 + r/100)^nt */}
-          <div>{calculateCompoundInterestForRD(loanAmt, 8, durationAmt)}</div>
+          <div>
+            {calculateCompoundInterestForRD(loanAmt, rate, durationAmt)}
+          </div>
         </div>
       </main>
     </div>

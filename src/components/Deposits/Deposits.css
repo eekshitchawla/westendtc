@@ -1,0 +1,8 @@
+@media screen and (max-width: 768px) {
+  #depo,
+  #compo,
+  #input-range {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,6 +1,7 @@
 /* navbar */
 #navbar {
-  width: 60vw;
+  display: flex;
+  justify-content: center;
   opacity: 0.9;
 }
 #navbar-ul {

@@ -1,0 +1,60 @@
+#btns > button,
+#btn {
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+#admin {
+  width: 70vw;
+  background-color: #fff;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-weight: bolder;
+  padding: 2rem 0;
+  padding-top: 10rem;
+  color: #a196ff;
+  font-size: 20px;
+  border-radius: 20px;
+}
+table,
+#admin-cont {
+  flex-wrap: wrap;
+}
+td {
+  padding: 0.5rem;
+  background-color: #a196ff;
+  color: white;
+  border-radius: 5px;
+}
+th {
+  border-radius: 5px;
+  padding: 0.5rem;
+  background-color: #482dad;
+  color: white;
+}
+#searchform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 1rem 0;
+}
+#searchform > button {
+  margin: 0 0.5rem;
+  padding: 0.8rem;
+}
+@media screen and (max-width: 900px) {
+  #admin {
+    height: 60vh;
+    width: 90vw;
+    font-size: 9px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 5rem;
+  }
+  button {
+    font-size: 9px;
+  }
+}

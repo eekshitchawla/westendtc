@@ -26,22 +26,9 @@ const Deposits = () => {
     }
   }, []);
 
-  function calculateCompoundInterestForRD(
-    investment,
-    interestRate,
-    timePeriod
-  ) {
-    interestRate = parseInt(interestRate) / 100;
-
-    // Calculate maturity amount
-    var maturityAmount = 0;
-    for (var i = 1; i <= timePeriod; i++) {
-      maturityAmount += parseInt(investment);
-      maturityAmount *= 1 + interestRate / 12;
-    }
-    return parseFloat(maturityAmount.toFixed(2));
+  function calculateSimpleInterestForRD(p, r, t) {
+    return (p * r * t) / 100 + parseFloat(p * t);
   }
-
   return (
     <div className="addMem" id="depo">
       <div>Deposits</div>
@@ -135,10 +122,7 @@ const Deposits = () => {
           </div>
 
           <br />
-          {/* A = P x (1 + r/100)^nt */}
-          <div>
-            {calculateCompoundInterestForRD(loanAmt, rate, durationAmt)}
-          </div>
+          <div>{calculateSimpleInterestForRD(loanAmt, rate, durationAmt)}</div>
         </div>
       </main>
     </div>

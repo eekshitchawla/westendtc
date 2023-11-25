@@ -8,29 +8,21 @@ import RemoveMember from "./components/admin/RemoveMember/RemoveMember";
 import EditMember from "./components/admin/EditMember/EditMember";
 import Login from "./components/Login/Login";
 import Deposits from "./components/Deposits/Deposits";
+import Admin from "./components/admin/admin";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 function App() {
   const appRouter = createBrowserRouter([
     {
       path: "/",
       element: <Body />,
+      errorElement: <ErrorPage />,
     },
     {
       path: "/calculator",
       element: <Calculator />,
     },
-    {
-      path: "/add-member",
-      element: <AddMember />,
-    },
-    {
-      path: "/remove-member",
-      element: <RemoveMember />,
-    },
-    {
-      path: "/edit-member",
-      element: <EditMember />,
-    },
+
     {
       path: "/login",
       element: <Login />,
@@ -38,6 +30,22 @@ function App() {
     {
       path: "/deposits",
       element: <Deposits />,
+    },
+    {
+      path: "/admin",
+      element: <Admin />,
+    },
+    {
+      path: "/admin/add-member",
+      element: <AddMember />,
+    },
+    {
+      path: "/admin/remove-member",
+      element: <RemoveMember />,
+    },
+    {
+      path: "/admin/edit-member",
+      element: <EditMember />,
     },
   ]);
   return (

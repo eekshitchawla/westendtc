@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { db_firebase } from "../../utils/firebase";
 import { doc, getDoc } from "firebase/firestore";
+import "./Login.css";
 
 const Login = () => {
   const [memId, setMemId] = useState("");
   const [phnm, setPhnm] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
   const auth = async () => {
     const db = db_firebase;
-    const memRef = await getDoc(doc(db, "members", memId));
+    const memRef = await (isAdmin
+      ? getDoc(doc(db, "admin", memId))
+      : getDoc(doc(db, "members", memId)));
     if (memRef.exists()) {
       const phoneNumber = memRef.data().phoneNumber;
       if (phoneNumber === phnm) {
         localStorage.setItem("userId", memId);
         console.log(localStorage.getItem("userId"));
         alert("User Logged In!");
-        window.location.href = "/";
+        isAdmin
+          ? (window.location.href = "/admin")
+          : (window.location.href = "/");
       } else {
         alert("Password Incorrect");
       }
@@ -25,6 +31,24 @@ const Login = () => {
   return (
     <div className="addMem">
       LOGIN
+      <form id="radioform">
+        <div>
+          <input
+            type="radio"
+            name="userType"
+            onChange={() => setIsAdmin(true)}
+          />
+          <p>Admin</p>
+        </div>
+        <div>
+          <input
+            type="radio"
+            name="userType"
+            onChange={() => setIsAdmin(false)}
+          />
+          <p>Member</p>
+        </div>
+      </form>
       <form>
         <label>Mem Id</label>
         <input

@@ -1,10 +1,10 @@
-import about from "../../assets/aboutUs.png";
+// import about from "../../assets/aboutUs.png";
 import "./About.css";
 const About = () => {
   return (
     <div id="about-container">
-      <h1 id="about-heading"> ABOUT US </h1>
-      <img id="about-img" src={about} alt="about us" />
+      <div id="about-heading">ABOUT US</div>
+      <div id="about-sub-heading">Empowering Futures, Banking Together</div>
       <p id="about-content">
         The Society was formally instituted in the year 1986 and has since
         accomplished a span of 37 years in unwavering service to its esteemed

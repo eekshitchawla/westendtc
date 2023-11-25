@@ -1,7 +1,7 @@
 import React from "react";
-import acc from "../../assets/accountant.png";
-import money from "../../assets/money.png";
-import deposit from "../../assets/deposit.png";
+import acc from "../../assets/accounts.webp";
+import money from "../../assets/loans.webp";
+import deposit from "../../assets/deposits.webp";
 import logo from "../../assets/westendLogo.png";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
@@ -55,10 +55,37 @@ const Body = () => {
           {data.map((item, i) => (
             <div key={i} className="info-card" id="accounts-card">
               <div id="card-data">
-                <h3>{item.name.toUpperCase()}</h3>
-                <p>{item.desc}</p>
+                <div
+                  style={{
+                    height: "50%",
+                  }}
+                >
+                  <img
+                    id={item.name}
+                    src={item.url}
+                    alt=""
+                    width={i === 2 ? "20%" : "25%"}
+                  />
+                </div>
+                <div
+                  style={{
+                    height: "50%",
+                  }}
+                >
+                  <div>
+                    <b>{item.name.toUpperCase()}</b>
+                  </div>
+                  <div
+                    style={{
+                      // width: "11vw",
+                      fontSize: 13,
+                      paddingTop: 10,
+                    }}
+                  >
+                    {item.desc}
+                  </div>
+                </div>
               </div>
-              <img id="accountant-img" src={item.url} alt="" />
             </div>
           ))}
         </div>

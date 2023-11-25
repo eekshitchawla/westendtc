@@ -71,14 +71,22 @@
   color: #4018d0;
 }
 
+#card-data {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 #info-cards {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 35px;
+  gap: 30px;
 }
 .info-card {
-  width: 20vw;
+  width: 12.5vw;
+  height: 18vh;
   background: radial-gradient(
     circle,
     rgba(72, 45, 173, 0.27) 0%,
@@ -86,7 +94,7 @@
   );
   border-radius: 20px;
   padding: 50px 20px;
-  margin: 1vh;
+  /* margin: 1vh; */
   display: flex;
   align-items: center;
   justify-content: center;

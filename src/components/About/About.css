@@ -1,6 +1,11 @@
 /* about */
 #about-container {
-  background-color: #d4ceff;
+  /* background-color: #d4ceff; */
+  background: linear-gradient(
+    150deg,
+    rgba(72, 45, 173, 0.15) 10%,
+    rgba(148, 143, 255, 0.15) 50%
+  );
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +22,7 @@
 #about-sub-heading {
   font-size: 14px;
   padding-top: 5px;
-  color: #4018d0;
+  /* color: #4018d0; */
 }
 
 #about-content {

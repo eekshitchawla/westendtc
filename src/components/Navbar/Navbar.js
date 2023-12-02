@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const id = localStorage.getItem("userId");
   const loggedOut = () => {
     localStorage.removeItem("userId");
     setIsLoggedIn(false);
   };
   useEffect(() => {
     setIsLoggedIn(localStorage.getItem("userId") ? true : false);
+    setIsAdmin(localStorage.getItem("userId") === "000");
   }, []);
   return (
     <nav id="navbar">
@@ -36,16 +39,25 @@ const Navbar = () => {
           <a href="/#footer-container"> Contact Us</a>
         </li>
         {isLoggedIn ? (
-          <li
-            id="logout"
-            onClick={(e) => {
-              e.preventDefault();
-              loggedOut();
-              alert("Logged Out!");
-            }}
-          >
-            Logout
-          </li>
+          <>
+            <li
+              id="logout"
+              onClick={(e) => {
+                e.preventDefault();
+                loggedOut();
+                alert("Logged Out!");
+              }}
+            >
+              Logout
+            </li>
+            {isAdmin ? (
+              ""
+            ) : (
+              <li>
+                <a href={`/user/${id}`}>{localStorage.getItem("memName")}</a>
+              </li>
+            )}
+          </>
         ) : (
           <li>
             <a href="/login">Login</a>

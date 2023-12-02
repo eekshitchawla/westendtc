@@ -10,6 +10,7 @@ import Login from "./components/Login/Login";
 import Deposits from "./components/Deposits/Deposits";
 import Admin from "./components/admin/admin";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
+import User from "./components/User/User";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -46,6 +47,10 @@ function App() {
     {
       path: "/admin/edit-member",
       element: <EditMember />,
+    },
+    {
+      path: "/user/:userId",
+      element: <User />,
     },
   ]);
   return (

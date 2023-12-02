@@ -1,14 +1,16 @@
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { db_firebase } from "../../../utils/firebase";
 
 const EditMember = () => {
   const [id, setId] = useState("");
   const [memId, setMemId] = useState("");
   const [memName, setMemName] = useState("");
-  const [age, setAge] = useState("");
+  const [dob, setDOB] = useState("");
   const [phnm, setPhnm] = useState("");
   const [address, setAddress] = useState("");
+  const [loan, setLoan] = useState("");
+
   const [isPresent, setIsPresent] = useState(false);
   const db = db_firebase;
   const editMember = async () => {
@@ -20,12 +22,14 @@ const EditMember = () => {
         setIsPresent(true);
         const memSnap = await getDoc(memberDocRef);
         const props = memSnap.data();
+        console.log(props);
 
         setMemId(props.memberId);
         setMemName(props.memberName);
-        setAge(props.memberAge);
+        setDOB(props.memberAge);
         setPhnm(props.phoneNumber);
         setAddress(props.memberAddress);
+        setLoan(props.memberLoan);
       } else {
         alert("Member does not exist.");
       }
@@ -42,11 +46,18 @@ const EditMember = () => {
       if (memExist.exists()) {
         setIsPresent(true);
 
+        console.log(loan);
+        const formattedDate = dob ? new Date(dob) : null;
+        if (!memName || !formattedDate || !phnm || !address || !loan) {
+          alert("Please check for format and empty fields");
+          return;
+        }
         await updateDoc(memberDocRef, {
           memberName: memName,
-          memberAge: age,
+          memberDOB: formattedDate,
           phoneNumber: phnm,
           memberAddress: address,
+          memberLoan: loan,
         });
         alert("Member Details updated successfully!");
       } else {
@@ -56,7 +67,17 @@ const EditMember = () => {
       console.error("Error updating member data:", error.message);
     }
   };
+  const init = () => {};
+  const sendBack = () => {
+    alert("Access Restricted");
+    window.location.href = "/";
+  };
 
+  useEffect(() => {
+    const isLogin = localStorage.userId === "000";
+    // console.log(isLogin);
+    isLogin ? init() : sendBack();
+  });
   return (
     <div className="removeMember">
       Edit Member
@@ -95,12 +116,12 @@ const EditMember = () => {
             onChange={(e) => setMemName(e.target.value)}
           />
 
-          <label>Age</label>
+          <label>DOB</label>
           <input
-            type="text"
+            type="date"
             required
-            value={age || ""}
-            onChange={(e) => setAge(e.target.value)}
+            value={dob || ""}
+            onChange={(e) => setDOB(e.target.value)}
           />
 
           <label>Phone Number</label>
@@ -117,6 +138,14 @@ const EditMember = () => {
             required
             value={address || ""}
             onChange={(e) => setAddress(e.target.value)}
+          />
+
+          <label>Loan</label>
+          <input
+            type="text"
+            required
+            value={loan || ""}
+            onChange={(e) => setLoan(e.target.value)}
           />
           <button
             onClick={(e) => {

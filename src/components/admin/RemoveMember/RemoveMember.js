@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "./RemoveMember.css";
 import { deleteDoc, doc, getDoc } from "firebase/firestore";
 import { db_firebase } from "../../../utils/firebase";
@@ -21,7 +21,17 @@ const RemoveMember = () => {
       console.error("Error retrieving member data:", error.message);
     }
   };
+  const init = () => {};
+  const sendBack = () => {
+    alert("Access Restricted");
+    window.location.href = "/";
+  };
 
+  useEffect(() => {
+    const isLogin = localStorage.userId === "000";
+    console.log(isLogin);
+    isLogin ? init() : sendBack();
+  });
   return (
     <div className="removeMember">
       Remove Member

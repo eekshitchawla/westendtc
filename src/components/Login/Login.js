@@ -14,8 +14,10 @@ const Login = () => {
       : getDoc(doc(db, "members", memId)));
     if (memRef.exists()) {
       const phoneNumber = memRef.data().phoneNumber;
+      const memName = memRef.data().memberName;
       if (phoneNumber === phnm) {
         localStorage.setItem("userId", memId);
+        localStorage.setItem("memName", memName);
         console.log(localStorage.getItem("userId"));
         alert("User Logged In!");
         isAdmin

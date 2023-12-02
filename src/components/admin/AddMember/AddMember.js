@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "./AddMember.css";
 import { setDoc, doc, getDoc } from "firebase/firestore";
 import { db_firebase } from "../../../utils/firebase";
@@ -7,23 +7,25 @@ const AddMember = () => {
   const db = db_firebase;
   const memId = useRef();
   const memName = useRef();
-  const age = useRef();
+  const dob = useRef();
   const phnm = useRef();
   const address = useRef();
+  const loan = useRef();
 
   const toFirebase = async () => {
     const memberId = memId.current.value;
     const memberName = memName.current.value;
-    const memberAge = age.current.value;
+    const memberDOB = dob.current.value;
     const phoneNumber = phnm.current.value;
     const memberAddress = address.current.value;
-
+    const memberLoan = loan.current.value;
     if (
       !memberId ||
       !memberName ||
-      !memberAge ||
+      !memberDOB ||
       !phoneNumber ||
-      !memberAddress
+      !memberAddress ||
+      !memberLoan
     ) {
       alert("Please Fill all the Details ");
       return;
@@ -40,21 +42,34 @@ const AddMember = () => {
       await setDoc(memberDocRef, {
         memberId,
         memberName,
-        memberAge,
+        memberDOB,
         phoneNumber,
         memberAddress,
+        memberLoan,
       });
       alert("Member Added!");
       //   console.log("Document successfully written!");
       memId.current.value = "";
       memName.current.value = "";
-      age.current.value = "";
+      dob.current.value = "";
       phnm.current.value = "";
       address.current.value = "";
+      loan.current.value = "";
     } catch (e) {
       console.error("Error writing document: ", e);
     }
   };
+  const init = () => {};
+  const sendBack = () => {
+    alert("Access Restricted");
+    window.location.href = "/";
+  };
+
+  useEffect(() => {
+    const isLogin = localStorage.userId === "000";
+    console.log(isLogin);
+    isLogin ? init() : sendBack();
+  });
 
   return (
     <div className="addMem">
@@ -66,14 +81,17 @@ const AddMember = () => {
         <label>Name</label>
         <input ref={memName} type="text" required />
 
-        <label>Age</label>
-        <input ref={age} type="number" required />
+        <label>DOB</label>
+        <input ref={dob} type="date" required />
 
         <label>Phone Number</label>
         <input ref={phnm} type="text" required />
 
         <label>Address</label>
         <input ref={address} type="text" required />
+
+        <label>Loan</label>
+        <input ref={loan} type="text" required />
 
         <button
           onClick={(e) => {
